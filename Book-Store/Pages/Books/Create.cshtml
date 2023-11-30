@@ -1,0 +1,57 @@
+﻿@page
+@model Book_Store.Pages.Books.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookEntity.Title" class="control-label"></label>
+                <input asp-for="BookEntity.Title" class="form-control" />
+                <span asp-validation-for="BookEntity.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookEntity.AuthorName" class="control-label"></label>
+                <input asp-for="BookEntity.AuthorName" class="form-control" />
+                <span asp-validation-for="BookEntity.AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookEntity.BookCategoryId" ></label>
+                <select asp-for="BookEntity.BookCategoryId" asp-items="Model.GetBookCategoury"
+                class="form-control">
+                   <option selected>--Select Book Category--</option>
+                </select>
+                <span asp-validation-for="BookEntity.AuthorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookEntity.ReleaseDate" class="control-label"></label>
+                <input asp-for="BookEntity.ReleaseDate" class="form-control" />
+                <span asp-validation-for="BookEntity.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookEntity.Rating" class="control-label"></label>
+                <input asp-for="BookEntity.Rating" class="form-control" />
+                <span asp-validation-for="BookEntity.Rating" class="text-danger"></span>
+            </div>
+            
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-danger mx-1">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
